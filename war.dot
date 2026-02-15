@@ -1,0 +1,217 @@
+digraph {
+  rankdir=RL
+  graph [
+    charset = "UTF-8"
+    nodesep=0.2
+    ranksep=0.2
+    dpi=48
+  ]
+  
+  node [
+    shape="box"
+    style="rounded,filled"
+  ]
+  
+  //=====================================================
+  // node define
+  //=====================================================
+  
+  
+  
+  E00 [label="[E00]\n原爆投下\n1945.8.6/8" fontsize=20 penwidth=3 target=_blank URL="https://ja.wikipedia.org/wiki/%E5%BA%83%E5%B3%B6%E5%B8%82%E3%81%B8%E3%81%AE%E5%8E%9F%E5%AD%90%E7%88%86%E5%BC%BE%E6%8A%95%E4%B8%8B"]
+  
+  //=====================================================
+  // 技術的要因
+  //=====================================================
+  //ETECH   -> E00
+  E10_00 -> E20_00
+
+  subgraph cluster_0 {
+    label = "[E10]技術的要因"
+    style="rounded,filled"
+    fillcolor="#CCFFFF"
+    fontsize=20
+    //=================================
+
+    //ETECH     [label="技術的要因\n(手段)"]
+    E10_00    [label="[E10_00]\n原爆完成\n1945.7.16" penwidth=3 target=_blank URL="https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%B3%E3%83%8F%E3%83%83%E3%82%BF%E3%83%B3%E8%A8%88%E7%94%BB"]
+
+    //E10_10   [label="[E10_10]\n日本のトラック島を\n原爆使用対象\nとの意見あり\n1943.05.05" penwidth=3 target=_blank URL="https://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E3%81%B8%E3%81%AE%E5%8E%9F%E5%AD%90%E7%88%86%E5%BC%BE%E6%8A%95%E4%B8%8B"]
+
+    E10_20 [label="[E10_20]\nマンハッタン\n計画開始(米国)\n1942.5.12" penwidth=3 target=_blank URL="https://ja.wikipedia.org/wiki/%E3%83%9E%E3%83%B3%E3%83%8F%E3%83%83%E3%82%BF%E3%83%B3%E8%A8%88%E7%94%BB"]
+    E10_30 [label="[E10_30]\nナチスドイツの\n原爆製造を\n米国が懸念"]
+    E10_40 [label="[E10_40]\nドイツ\n核分裂発見\n1938" penwidth=3 target=_blank URL="https://ja.wikipedia.org/wiki/%E6%A0%B8%E5%88%86%E8%A3%82%E3%81%AE%E7%99%BA%E8%A6%8B"]
+
+    //E10_10 -> E10_00
+    E10_20 -> E10_00
+    E10_30 -> E10_20
+    E10_40 -> E10_30
+  }
+  
+  //=====================================================
+  // 動機的要因（米国)
+  //=====================================================
+  E20_00     -> E00
+  subgraph cluster_1 {
+    label = "[E20]動機的要因(米国)"
+    style="rounded,filled"
+    fillcolor="#CCFFFF"
+    fontsize=20
+    //=================================
+    
+    E20_00     [label="[E20_00]\n原爆投下の\n動機"]
+   //E20_10     [label="[E20_10]\nマンハッタン計画の遂行"]
+     E20_20 [label="[E20_20]\nポツダム宣言\n(無条件降伏要求)を\n日本が無視\n1945.07.26" penwidth=3 target=_blank URL="https://ja.wikipedia.org/wiki/%E3%83%9D%E3%83%84%E3%83%80%E3%83%A0%E5%AE%A3%E8%A8%80"]
+
+     E20_30  [label="[E20_30]\n日本に降伏を迫る\n特別な手段が必要"]
+      E20_31    [label="[E20_31]\n本土決戦は\n避けたい"]
+       E20_31A   [label="[E20_31A]\n沖縄戦\n米軍想定外の\n被害" penwidth=3 target=_blank URL="https://ja.wikipedia.org/wiki/%E6%B2%96%E7%B8%84%E6%88%A6"]
+      E20_40    [label="[E20_40]\n圧倒的戦力差が\n明白にもかかわらず\n降伏しない日本"]
+       E20_41    [label="[E20_41]\nミッドウェー海戦\n日本の損失:\n空母4隻+兵三千人" penwidth=3 target=_blank URL="https://ja.wikipedia.org/wiki/%E3%83%9F%E3%83%83%E3%83%89%E3%82%A6%E3%82%A7%E3%83%BC%E6%B5%B7%E6%88%A6"]
+       E20_42    [label="[E20_42]\nサイパン島陥落"]
+       E20_43    [label="[E20_43]\n多数の空襲\n損失家屋数230万戸\n死者数56万人" penwidth=3 target=_blank URL="https://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E6%9C%AC%E5%9C%9F%E7%A9%BA%E8%A5%B2"]
+       
+        
+
+
+   //E20_10 -> E20_00
+     E20_20 -> E20_00
+
+     E20_30 -> E20_00
+      E20_31 -> E20_30
+       E20_31A->E20_31
+       E20_31A->E20_40
+       
+      E20_40 -> E20_30
+       E20_41 ->E20_40
+       E20_42 ->E20_40
+       E20_43 ->E20_40
+
+  }
+  
+  //=====================================================
+  // 動機的原因(日本)原爆を落とされるまで降伏しなかった原因
+  //=====================================================
+
+  E30_00 -> E00
+
+  subgraph cluster_2 {
+    label = "[E30]動機的要因(日本)：原爆投下まで降伏しなかった動機的要因"
+    style="rounded,filled"
+    fillcolor="#CCFFFF"
+    fontsize=20
+    //=================================
+
+  
+    E30_00 [label="[E30_00]\n原爆投下まで\n降伏しなかった"]
+     E30_10 [label="[E30_10]\n政治における\n軍の発言権が強い"]
+      E30_11   [label="[E30_11]\n憲法の問題\n国家権力から国民を\n守る機能の欠如"]
+       E30_11A   [label="[E30_11A]\n統帥権の独立"]
+       E30_11B   [label="[E30_11B]\n「基本的人権の尊重」\n欠如"]
+       E30_11C   [label="[E30_11C]\n「平和主義」の欠如"]
+       E30_11D   [label="[E30_11D]\n天皇主権"]
+       E30_11E   [label="[E30_11E]\n緊急事態条項" ]
+      E30_12    [label="[E30_12]\n軍部大臣\n現役武官制" penwidth=3 target=_blank URL="https://ja.wikipedia.org/wiki/%E8%BB%8D%E9%83%A8%E5%A4%A7%E8%87%A3%E7%8F%BE%E5%BD%B9%E6%AD%A6%E5%AE%98%E5%88%B6"]
+      E30_13  [label="[E30_13]\n政治の弱体化"]
+       E30_13A   [label="[E30_13A]\n5.15事件" penwidth=3 target=_blank URL="https://ja.wikipedia.org/wiki/%E4%BA%94%E3%83%BB%E4%B8%80%E4%BA%94%E4%BA%8B%E4%BB%B6"]
+       E30_13B   [label="[E30_13B]\n2.26事件" penwidth=3 target=_blank URL="https://ja.wikipedia.org/wiki/%E4%BA%8C%E3%83%BB%E4%BA%8C%E5%85%AD%E4%BA%8B%E4%BB%B6"]
+     E30_20   [label="[E30_20]\n「戦陣訓」の影響\n(1941年発布)\n(玉砕を推奨)" penwidth=3 target=_blank URL="https://ja.wikipedia.org/wiki/%E6%88%A6%E9%99%A3%E8%A8%93#:~:text=%E6%88%A6%E9%99%A3%E3%81%A7%E3%81%AE%E8%A8%93%E6%88%92%E3%81%AE,%E8%A8%93%E4%B8%80%E5%8F%B7%EF%BC%89%E3%82%92%E6%8C%87%E3%81%99%E3%80%82"]
+      E30_21   [label="[E30_21]\n日露戦争で捕虜から\n軍事機密が漏れた"]
+      E30_22    [label="[E30_22]\n南京大虐殺\n1937.12.13-" penwidth=3 target=_blank URL="https://seesaawiki.jp/w/nankingfaq/"]
+       E30_220     [label="[E30_220]\n第二次上海事変\n(1937.8.13)の\n日本軍の苦戦" penwidth=3 target=_blank URL="https://ja.wikipedia.org/wiki/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%B8%8A%E6%B5%B7%E4%BA%8B%E5%A4%89"]
+        E30_2200  [label="[E30_2200]\n中国側の\n周到な準備"]
+         E30_2200A [label="[E30_2200A]\nドイツ軍事\n顧問団による\n中国軍の訓練"]
+         E30_2200B [label="[E30_2200B]\nドイツからの\n武器輸入"]
+         E30_2200C  [label="[E30_2200C]\n兵の増強(7万)"]
+        E30_2201[label="[E30_2201]\n日本兵不足\n(当初4000)"]  
+     E30_30   [label="[E30_30]\n沖縄戦の後\n講和交渉を画策するも\n間に合わず"]
+      E30_300  [label="[E30_300]\n講和の仲介を\n依頼するも\nロシア動かず"]
+       E30_3000 [label="[E30_3000]\n既にロシアは\n南サハリン奪還を\n計画中だった"]
+
+     E30_10 -> E30_00
+      E30_11   -> E30_10
+       E30_11A    -> E30_11
+       E30_11B    -> E30_11
+       E30_11C    -> E30_11
+       E30_11D   -> E30_11
+       E30_11E   -> E30_11
+      E30_12    -> E30_10
+      E30_13  -> E30_10
+       E30_13A      -> E30_13
+       E30_13B      -> E30_13
+      E30_20   ->E30_00
+       E30_21   -> E30_20
+       E30_22     -> E30_20
+        E30_220     -> E30_22  
+         E30_2200  -> E30_220 
+          E30_2200A  -> E30_2200
+          E30_2200B  -> E30_2200
+          E30_2200C  -> E30_2200
+         E30_2201 -> E30_220   
+     E30_30 -> E30_00
+      E30_300 -> E30_30
+       E30_3000 -> E30_300
+  
+  }
+  //=====================================================
+  // 米の参戦：原爆を落とす機会の提供
+  //=====================================================
+  #EOPPO     -> E00
+  E40_00     -> E00
+
+  subgraph cluster_3{
+    label="[E40]機会的要因(米国に参戦の機会を与えた要因)"
+    style="rounded,filled"
+    fillcolor="#CCFFFF"
+    fontsize=20
+    //=================================
+
+    
+    #EOPPO    [label="米国の参戦"]
+     E40_00    [label="[E40_00]\n日本軍の\n真珠湾攻撃\n↓\n米国の参戦\n1941.12.7" penwidth=3 target=_blank URL="https://ja.wikipedia.org/wiki/%E7%9C%9F%E7%8F%A0%E6%B9%BE%E6%94%BB%E6%92%83"]
+      E40_10      [label="[E40_10]\nハルノート\n1941.11.26" penwidth=3 target=_blank URL="https://ja.wikipedia.org/wiki/%E3%83%8F%E3%83%AB%E3%83%BB%E3%83%8E%E3%83%BC%E3%83%88"]
+      E40_20    [label="[E40_20]\n対米戦争支持の\n世論の高まり"]
+       E40_200    [label="[E40_200]\n米国による\n石油輸出禁止\n1941.8.1" penwidth=3 target=_blank URL="https://www.jacar.go.jp/nichibei/popup/pop_13.html"]
+        E40_2000  [label="[E40_2000]\n日本軍の\nベトナム、\nラオス、\nカンボジア\nへの進駐\n1941.7.28" penwidth=3 target=_blank URL="https://ja.wikipedia.org/wiki/%E4%BB%8F%E5%8D%B0%E9%80%B2%E9%A7%90"]
+         E40_20000   [label="[E40_20000]\n資源調達\n(特に石油)\nの必要性"]
+         E40_20001   [label="[E40_20001]\n大東亜共栄圏" penwidth=3 target=_blank URL="https://ja.wikipedia.org/wiki/%E5%A4%A7%E6%9D%B1%E4%BA%9C%E5%85%B1%E6%A0%84%E5%9C%8F"]
+          E40_20001A  [label="[E20_20001A]\nナチスドイツ\n「生存圏」の考え方"]
+          E40_20001B  [label="[E20_20001B]\n国粋主義の思想"]
+          E40_20001C  [label="[E20_20001C]\n欧米の「帝国主義」\nに対抗する手段が必要"]
+       E40_201   [label="[E40_201]\n過去の戦争の\n成功体験"]
+        E40_201A  [label="[E40_201A]\n日清戦争\n(1894年)\n国家予算4年分\n相当の賠償金\n獲得" penwidth=3 target=_blank URL="https://ja.wikipedia.org/wiki/%E6%97%A5%E6%B8%85%E6%88%A6%E4%BA%89"]
+        E40_201B  [label="[E40_201B]\n日露戦争\n(1904年)\n南サハリン等\n獲得" penwidth=3 target=_blank URL="https://ja.wikipedia.org/wiki/%E6%97%A5%E9%9C%B2%E6%88%A6%E4%BA%89"]
+
+       E40_202   [label="[E40_202]\n報道の問題\n(戦争を肯定)"]
+        E40_202A  [label="[E40_202A]\n軍による検閲"]
+      E40_10      -> E40_00
+      E40_20    -> E40_00
+       E40_200    -> E40_20
+        E40_2000  -> E40_200
+         E40_20000   -> E40_2000
+         E40_20001   -> E40_2000
+          E40_20001A  -> E40_20001
+          E40_20001B  -> E40_20001
+          E40_20001C  -> E40_20001
+       E40_201   -> E40_20
+        E40_201A  -> E40_201
+        E40_201B -> E40_201
+       E40_202   -> E40_20
+        E40_202A  -> E40_202
+  }
+
+  //=====================================================
+  // 凡例
+  //=====================================================
+  subgraph cluster_4{
+    label="凡例"
+    style="rounded,filled"
+    fillcolor="#CCFFFF"
+    fontsize=20
+
+    Ecause  [label="原因"]
+    Eresult [label="結果"]
+    Ecause -> Eresult
+  }
+
+}
